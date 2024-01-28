@@ -30,7 +30,7 @@ set -g @telescope-directory-refresh-bind u      # Bind '<leader>u' to refresh Di
 
 ### Directory Sessions Picker
 
-The one and only *picker* so far. By default it's a list of local [Git](https://git-scm.com/) repositories that recursively finds all repositories under your home (`~`) directory. The search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`. You can provide a list of custom directories to add in `~/.tmux/plugins/tmux-telescope/userdata/custom-directories`.
+The one and only *picker* so far. By default it's a list of local [Git](https://git-scm.com/) repositories found recursively from your home (`~`) directory. The search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`. You can provide a list of custom directories to add in `~/.tmux/plugins/tmux-telescope/userdata/custom-directories`.
 
 When you pick an entry, a tmux session will be created and a terminal opened at the directory location. If the session already exists it will simply switch to it. Easy peasy.
 
