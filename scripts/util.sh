@@ -20,6 +20,11 @@ eval_and_verify_directories() {
     verified_dirs=$(echo "$verified_dirs" | awk 'NF')
 }
 
+find_git_dirs() {
+    local dir_path="$1"
+    find "$dir_path" -name ".git" | sed 's/\.git$//'
+}
+
 preview_session() {
     session_name="$1"
     session_name_escaped=$(printf '%q' "$1")

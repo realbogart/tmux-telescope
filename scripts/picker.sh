@@ -21,6 +21,7 @@ picker_preview_wrapper() {
 }
 
 if [ ! -f "$PICKER_CACHE" ]; then
+    > $PICKER_CACHE
     picker_rebuild_cache
 fi
 

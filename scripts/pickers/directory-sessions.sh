@@ -5,12 +5,48 @@ picker_init () {
 }
 
 picker_rebuild_cache() {
-    > $PICKER_CACHE
+    #
+    # Custom directories
+    #
+    echo "Verifying and adding custom directories"
 
-    $SCRIPTS_DIR/add-custom-directories.sh
-    $SCRIPTS_DIR/find-git-repositories.sh
+    if [ ! -f "$CUSTOM_DIRECTORIES_FILE" ]; then
+        echo "Creating '$CUSTOM_DIRECTORIES_FILE' with default directory '~'"
+        echo "~" > "$CUSTOM_DIRECTORIES_FILE"
+    fi
 
-    echo "Done!"
+    file_contents=$(cat "$CUSTOM_DIRECTORIES_FILE")
+    eval_and_verify_directories "$file_contents"
+
+    if [[ -n "$file_contents" ]]; then
+        echo -e "$verified_dirs" > "$PICKER_CACHE"
+    fi
+
+    #
+    # Git directories
+    #
+    if [ ! -f "$GITROOTS_FILE" ]; then
+        echo "Creating '$GITROOTS_FILE' with default directory '~'"
+        echo "~" > "$GITROOTS_FILE"
+    fi
+
+    file_contents=$(cat "$GITROOTS_FILE")
+    eval_and_verify_directories "$file_contents"
+
+    git_dirs=""
+    while IFS= read -r dir; do
+        echo "Finding Git repositories from '$dir'"
+
+        if [[ -n "$git_dirs" ]]; then
+            git_dirs+=$'\n'
+        fi
+
+        git_dirs+=$(find_git_dirs "$dir")
+    done <<< "$verified_dirs"
+
+    if [[ -n "$git_dirs" ]]; then
+        echo "$git_dirs" >> "$PICKER_CACHE"
+    fi
 }
 
 picker_list () {
