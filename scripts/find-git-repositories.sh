@@ -2,8 +2,6 @@
 
 GITROOTS_FILE="$USERDATA_DIR/gitroots"
 
-echo "Generating Git repository list..."
-
 if [ ! -f "$GITROOTS_FILE" ]; then
     echo "Creating '$GITROOTS_FILE' with default directory '~'"
     echo "~" > "$GITROOTS_FILE"
@@ -28,5 +26,7 @@ while IFS= read -r dir; do
     git_dirs+=$(find_git_dirs "$dir")
 done <<< "$verified_dirs"
 
-echo "$git_dirs" >> "$DIRECTORY_SESSIONS_FILE"
+if [[ -n "$git_dirs" ]]; then
+    echo "$git_dirs" >> "$DIRECTORY_SESSIONS_FILE"
+fi
 

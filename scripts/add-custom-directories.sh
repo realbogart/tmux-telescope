@@ -2,7 +2,7 @@
 
 CUSTOM_FILE="$USERDATA_DIR/custom"
 
-echo "Generating custom list..."
+echo "Verifying and adding custom directory list..."
 
 if [ -f "$CUSTOM_FILE" ]; then
     file_contents=$(cat "$CUSTOM_FILE")
