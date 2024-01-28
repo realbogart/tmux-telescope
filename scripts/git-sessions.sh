@@ -1,14 +1,13 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(dirname "${BASH_SOURCE[0]}")
-SCRIPT_DIR=$(cd "$SCRIPT_DIR" && pwd)
+SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 CACHE_DIR="$SCRIPT_DIR/../cache"
 SOURCES_DIR="$SCRIPT_DIR/../sources"
 SESSIONS_FILE="$CACHE_DIR/sessions"
-PREVIEW_SCRIPT="$SCRIPT_DIR/preview_session.sh"
+PREVIEW_SCRIPT="$SCRIPT_DIR/preview-session.sh"
 
 if [ ! -f "$SESSIONS_FILE" ]; then
-    "$SCRIPT_DIR/regenerate_sessions_list.sh"
+    "$SCRIPT_DIR/git-refresh.sh"
 fi
 
 selected_dir=$(cat "$SESSIONS_FILE" | sed "s|^$HOME|~|g" | fzf --layout=reverse -i --ansi --preview "$PREVIEW_SCRIPT {}")
