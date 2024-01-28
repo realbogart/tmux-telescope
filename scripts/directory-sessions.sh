@@ -3,14 +3,14 @@
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 CACHE_DIR="$SCRIPT_DIR/../cache"
 SOURCES_DIR="$SCRIPT_DIR/../sources"
-SESSIONS_FILE="$CACHE_DIR/sessions"
+DIRECTORY_SESSIONS_FILE="$CACHE_DIR/directory-sessions"
 PREVIEW_SCRIPT="$SCRIPT_DIR/preview-session.sh"
 
-if [ ! -f "$SESSIONS_FILE" ]; then
-    "$SCRIPT_DIR/git-refresh.sh"
+if [ ! -f "$DIRECTORY_SESSIONS_FILE" ]; then
+    "$SCRIPT_DIR/directory-refresh.sh"
 fi
 
-selected_dir=$(cat "$SESSIONS_FILE" | sed "s|^$HOME|~|g" | fzf --layout=reverse -i --ansi --preview "$PREVIEW_SCRIPT {}")
+selected_dir=$(cat "$DIRECTORY_SESSIONS_FILE" | sed "s|^$HOME|~|g" | fzf --layout=reverse -i --ansi --preview "$PREVIEW_SCRIPT {}")
 selected_dir_expanded=$(echo "$selected_dir" | sed "s|^~|$HOME|g")
 
 session_name="$selected_dir"

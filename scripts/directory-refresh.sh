@@ -3,8 +3,7 @@
 SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 USERDATA_DIR=$SCRIPT_DIR/../userdata
 CACHE_DIR=$SCRIPT_DIR/../cache
-
-SESSIONS_FILE="$CACHE_DIR/sessions"
+DIRECTORY_SESSIONS_FILE="$CACHE_DIR/directory-sessions"
 
 eval_and_verify_directories() {
     local input="$1"
@@ -34,9 +33,10 @@ if [ ! -d "$USERDATA_DIR" ]; then
     mkdir -p "$USERDATA_DIR"
 fi
 
-> $SESSIONS_FILE
+> $DIRECTORY_SESSIONS_FILE
 
-source $SCRIPT_DIR/generate_all.sh
+source $SCRIPT_DIR/add-custom-directories.sh
+source $SCRIPT_DIR/find-git-repositories.sh
 
 echo "Done!"
 

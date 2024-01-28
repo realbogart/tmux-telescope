@@ -21,20 +21,20 @@ set -g @plugin 'realbogart/tmux-telescope'
 And then hit `<leader> + I`. The *plugin* doesn't set up any keybindings by default, so here is an example configuration:
 
 ```bash
-bind S choose-session                   # Re-bind default session choser to '<leader>S'.
-set -g @telescope-git-sessions-bind s   # Bind '<leader>s' to open Git Sessions Picker described below.
-set -g @telescope-git-refresh-bind u    # Bind '<leader>u' to refresh Git Sessions list.
+bind S choose-session                           # Re-bind default session choser to '<leader>S'.
+set -g @telescope-directory-sessions-bind s     # Bind '<leader>s' to open Directory Sessions Picker described below.
+set -g @telescope-directory-refresh-bind u      # Bind '<leader>u' to refresh Directory Sessions list.
 ```
 
 ## Features
 
-### Git Sessions Picker
+### Directory Sessions Picker
 
-The one and only *picker* so far. It's a list of local [Git](https://git-scm.com/) repositories. By default it recursively finds all repositories under your home (`~`) directory, but the search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`.
+The one and only *picker* so far. By default it's a list of local [Git](https://git-scm.com/) repositories that recursively finds all repositories under your home (`~`) directory. The search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`.
 
-When you pick an entry, a tmux session will be created and a terminal opened at the repository location. If the session already exists it will simply switch to it. Easy peasy.
+When you pick an entry, a tmux session will be created and a terminal opened at the directory location. If the session already exists it will simply switch to it. Easy peasy.
 
-The repository list is manually refreshed using the key binding `@telescope-git-refresh-bind`. This is to avoid to unnecessary indexing and makes the *picker* open instantly.
+The directory list is manually refreshed using the key binding `@telescope-directory-refresh-bind`. This is to avoid to unnecessary indexing and makes the *picker* open instantly.
 
 # License
 
