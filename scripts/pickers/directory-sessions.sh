@@ -1,13 +1,20 @@
 #!/bin/bash
 
 picker_init () {
-    if [ ! -f "$DIRECTORY_SESSIONS_FILE" ]; then
-        "$SCRIPTS_DIR/directory-refresh.sh"
-    fi
+    :
+}
+
+picker_rebuild_cache() {
+    > $PICKER_CACHE
+
+    $SCRIPTS_DIR/add-custom-directories.sh
+    $SCRIPTS_DIR/find-git-repositories.sh
+
+    echo "Done!"
 }
 
 picker_list () {
-    cat "$DIRECTORY_SESSIONS_FILE" | sed "s|^$HOME|~|g"
+    cat "$PICKER_CACHE" | sed "s|^$HOME|~|g"
 }
 
 picker_preview () {

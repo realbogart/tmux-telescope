@@ -10,6 +10,11 @@ fi
 
 if tmux show-option -g | grep -q "^@telescope-directory-refresh-bind"; then
     bind_key=$(tmux show-option -gqv @telescope-directory-refresh-bind)
-    tmux bind-key "${bind_key}" run-shell "bash \"$SCRIPTS_DIR/directory-refresh.sh\""
+    tmux bind-key "${bind_key}" run-shell "bash \"$SCRIPTS_DIR/rebuild-cache.sh\""
+fi
+
+if tmux show-option -g | grep -q "^@telescope-rebuild-cache"; then
+    bind_key=$(tmux show-option -gqv @telescope-rebuild-cache)
+    tmux bind-key "${bind_key}" run-shell "bash \"$SCRIPTS_DIR/rebuild-cache.sh\""
 fi
 

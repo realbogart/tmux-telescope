@@ -5,22 +5,24 @@ CURRENT_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 source $CURRENT_SCRIPT_DIR/env.sh
 source $SCRIPTS_DIR/util.sh
 
-if [ ! -d "$CACHE_DIR" ]; then
-    mkdir -p "$CACHE_DIR"
-fi
+$SCRIPTS_DIR/setup.sh
 
-if [ ! -d "$USERDATA_DIR" ]; then
-    mkdir -p "$USERDATA_DIR"
-fi
+picker_name=$1
+picker_source="$PICKERS_DIR/$picker_name.sh"
+PICKER_CACHE=$CACHE_DIR/$picker_name
 
-picker_source="$PICKERS_DIR/$1.sh"
 source $picker_source
 
 picker_preview_wrapper() {
     source $SCRIPTS_DIR/env.sh
     source $SCRIPTS_DIR/util.sh
+    PICKER_CACHE=$CACHE_DIR/$picker_name
     picker_preview $1
 }
+
+if [ ! -f "$PICKER_CACHE" ]; then
+    picker_rebuild_cache
+fi
 
 picker_init
 

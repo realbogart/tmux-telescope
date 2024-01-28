@@ -23,7 +23,7 @@ And then hit `<leader> + I`. The *plugin* doesn't set up any keybindings by defa
 ```bash
 bind S choose-session                           # Re-bind default session choser to '<leader>S'.
 set -g @telescope-directory-sessions-bind s     # Bind '<leader>s' to open Directory Sessions Picker described below.
-set -g @telescope-directory-refresh-bind u      # Bind '<leader>u' to refresh Directory Sessions list.
+set -g @telescope-rebuild-cache u               # Bind '<leader>u' to refresh Directory Sessions list.
 ```
 
 ## Features
@@ -34,7 +34,7 @@ The one and only *picker* so far. By default it's a list of local [Git](https://
 
 When you pick an entry, a tmux session will be created and a terminal opened at the directory location. If the session already exists it will simply switch to it. Easy peasy.
 
-The directory list is manually refreshed using the key binding `@telescope-directory-refresh-bind`. This is to avoid to unnecessary indexing and makes the *picker* open instantly.
+The directory list is manually refreshed using the key binding `@telescope-rebuild-cache`. This is to avoid to unnecessary indexing and makes the *picker* open instantly.
 
 # License
 
