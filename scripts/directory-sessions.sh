@@ -1,13 +1,10 @@
 #!/bin/bash
 
-SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
-CACHE_DIR="$SCRIPT_DIR/../cache"
-SOURCES_DIR="$SCRIPT_DIR/../sources"
-DIRECTORY_SESSIONS_FILE="$CACHE_DIR/directory-sessions"
-PREVIEW_SCRIPT="$SCRIPT_DIR/preview-session.sh"
+CURRENT_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+source $CURRENT_SCRIPT_DIR/env.sh
 
 if [ ! -f "$DIRECTORY_SESSIONS_FILE" ]; then
-    "$SCRIPT_DIR/directory-refresh.sh"
+    "$SCRIPTS_DIR/directory-refresh.sh"
 fi
 
 selected_dir=$(cat "$DIRECTORY_SESSIONS_FILE" | sed "s|^$HOME|~|g" | fzf --layout=reverse -i --ansi --preview "$PREVIEW_SCRIPT {}")

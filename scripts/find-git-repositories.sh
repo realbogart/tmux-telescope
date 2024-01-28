@@ -1,6 +1,7 @@
 #!/bin/bash
 
-GITROOTS_FILE="$USERDATA_DIR/gitroots"
+CURRENT_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+source $CURRENT_SCRIPT_DIR/env.sh
 
 if [ ! -f "$GITROOTS_FILE" ]; then
     echo "Creating '$GITROOTS_FILE' with default directory '~'"

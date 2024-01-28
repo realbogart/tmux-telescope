@@ -1,5 +1,8 @@
 #!/bin/bash
 
+CURRENT_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+source $CURRENT_SCRIPT_DIR/env.sh
+
 session_name="$1"
 session_name_escaped=$(printf '%q' "$1")
 

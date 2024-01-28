@@ -1,6 +1,7 @@
 #!/bin/bash
 
-CUSTOM_DIRECTORIES_FILE="$USERDATA_DIR/custom-directories"
+CURRENT_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+source $CURRENT_SCRIPT_DIR/env.sh
 
 echo "Verifying and adding custom directory list..."
 
