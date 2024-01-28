@@ -5,7 +5,7 @@ source $CURRENT_SCRIPT_DIR/scripts/env.sh
 
 if tmux show-option -g | grep -q "^@telescope-directory-sessions-bind"; then
     bind_key=$(tmux show-option -gqv @telescope-directory-sessions-bind)
-    tmux bind-key "${bind_key}" display-popup -E "$SCRIPTS_DIR/directory-sessions.sh"
+    tmux bind-key "${bind_key}" display-popup -E "$SCRIPTS_DIR/picker.sh directory-sessions"
 fi
 
 if tmux show-option -g | grep -q "^@telescope-directory-refresh-bind"; then
