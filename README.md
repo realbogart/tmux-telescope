@@ -41,11 +41,11 @@ The directory list is manually refreshed using the key binding `@telescope-rebui
 ```bash
 set -g @telescope-enable-preview 0  # Disable preview on pickers. It's enabled (1) by default.
 ```
-# Changelog
+## Changelog
 
 The changelog can be read [here](CHANGELOG.md).
 
-# License
+## License
 
 [MIT](LICENSE.md)
 
