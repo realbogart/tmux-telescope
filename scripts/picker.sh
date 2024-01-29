@@ -25,7 +25,9 @@ if [ ! -f "$PICKER_CACHE" ]; then
     picker_rebuild_cache
 fi
 
-picker_init
+if declare -f "picker_init" > /dev/null; then
+    picker_init
+fi
 
 export SCRIPTS_DIR
 export -f picker_preview picker_preview_wrapper

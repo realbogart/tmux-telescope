@@ -1,9 +1,5 @@
 #!/bin/bash
 
-picker_init () {
-    :
-}
-
 picker_rebuild_cache() {
     #
     # Custom directories
