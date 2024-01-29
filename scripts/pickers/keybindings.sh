@@ -10,13 +10,3 @@ picker_preview() {
     echo $(tmux list-keys -T $1 $2)
 }
 
-picker_select() {
-    selected_keybinding=$1
-
-    if [ -z "$selected_keybinding" ]; then
-        exit 0
-    fi
-
-    echo "Selected keybinding: $selected_keybinding"
-}
-

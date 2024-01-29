@@ -11,10 +11,6 @@ picker_preview () {
 picker_select () {
     selected_session=$1
 
-    if [ -z "$selected_session" ]; then
-        exit 0
-    fi
-
     if tmux has-session -t "$selected_session" 2>/dev/null; then
         if [ -n "$TMUX" ]; then
             tmux switch-client -t "$selected_session"

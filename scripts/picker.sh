@@ -44,5 +44,7 @@ if [ -z "$selected_entry" ]; then
     exit 0
 fi
 
-picker_select "$selected_entry"
+if declare -f "picker_select" > /dev/null; then
+    picker_select "$selected_entry"
+fi
 
