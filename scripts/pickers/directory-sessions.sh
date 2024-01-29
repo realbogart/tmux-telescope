@@ -64,7 +64,7 @@ picker_select () {
         exit 0
     fi
 
-    if tmux has-session -t "$session_name" 2>/dev/null; then
+    if tmux has-session -t "$session_name_escaped" 2>/dev/null; then
         if [ -n "$TMUX" ]; then
             tmux switch-client -t "$session_name_escaped"
         else

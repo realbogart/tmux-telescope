@@ -29,9 +29,15 @@ if declare -f "picker_init" > /dev/null; then
     picker_init
 fi
 
+fzf_command="picker_list | fzf --layout=reverse -i --ansi"
+
+if tmux show-option -gqv "@telescope-enable-preview" | grep -q "1" && declare -f "picker_preview" > /dev/null; then
+    fzf_command+=" --preview 'bash -c \"picker_preview_wrapper {}\"'"
+    export -f picker_preview picker_preview_wrapper
+fi
+
 export SCRIPTS_DIR
-export -f picker_preview picker_preview_wrapper
-selected_entry=$(picker_list | fzf --layout=reverse -i --ansi --preview 'bash -c "picker_preview_wrapper {}"')
+selected_entry=$(eval "$fzf_command")
 
 if [ -z "$selected_entry" ]; then
     exit 0
