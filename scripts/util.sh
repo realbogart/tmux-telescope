@@ -52,7 +52,8 @@ preview_pane() {
     fi
 }
 
-open_picker() {
-    tmux display-popup -E $SCRIPTS_DIR/picker.sh $1
+open_picker_cmd() {
+    picker_name="$1"
+    echo "display-popup -T '$picker_name' -E $SCRIPTS_DIR/picker.sh $picker_name"
 }
 
