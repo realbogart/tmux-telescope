@@ -11,6 +11,7 @@ picker_name=$1
 picker_source="$PICKERS_DIR/$picker_name.sh"
 PICKER_CACHE=$CACHE_DIR/$picker_name
 
+PICKER_OPT_WRAP="nowrap"
 source $picker_source
 
 picker_preview_wrapper() {
@@ -29,7 +30,7 @@ if declare -f "picker_init" > /dev/null; then
     picker_init
 fi
 
-fzf_command="picker_list | fzf --layout=reverse -i --ansi"
+fzf_command="picker_list | fzf --layout=reverse -i --ansi --preview-window=$PICKER_OPT_WRAP"
 
 if tmux show-option -gqv "@telescope-enable-preview" | grep -q "1" && declare -f "picker_preview" > /dev/null; then
     fzf_command+=" --preview 'bash -c \"picker_preview_wrapper {}\"'"

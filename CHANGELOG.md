@@ -4,7 +4,8 @@
 
 * [feature] Option @telescope-enable-preview to enable/disable preview. Enabled by default.
 * [feature] Possible to omit picker methods `picker_init` and/or `picker_preview`.
-* [feature] Add Sessions Picker
+* [feature] Add Sessions Picker.
++ [feature] Add Keybindings Picker.
 * [fix] Not being able to switch to session names containing special characters.
 * [fix] Tidy up `init.tmux`
 

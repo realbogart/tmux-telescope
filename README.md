@@ -24,6 +24,7 @@ And then hit `<leader> + I`. The *plugin* doesn't set up any keybindings by defa
 bind S choose-session                           # Re-bind default session choser to '<leader>S'.
 set -g @telescope-directory-sessions-bind s     # Bind '<leader>s' to open Directory Sessions Picker.
 set -g @telescope-sessions-bind a               # Bind '<leader>a' to open Sessions Picker.
+set -g @telescope-keybindings-bind k            # Bind '<leader>k' to open Keybindings Picker.
 set -g @telescope-rebuild-cache u               # Bind '<leader>u' to refresh Directory Sessions list.
 ```
 
@@ -40,6 +41,10 @@ The directory list is manually refreshed using the key binding `@telescope-rebui
 ### Sessions Picker
 
 Lists opened sessions. Picking one switches to that session.
+
+### Keybindings Picker
+
+Lists tmux category keybindings. No action when selecting one.
 
 ## Options
 
