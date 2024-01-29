@@ -9,6 +9,7 @@
 * [feature] Add Builtin Picker.
 * [feature] Add Panes Picker.
 * [feature] Make picker_select function optional.
+* [feature] Add label to picker windows.
 * [fix] Not being able to switch to session names containing special characters.
 * [fix] Tidy up `init.tmux`
 * [fix] Remove redundant checks in picker_select functions.
