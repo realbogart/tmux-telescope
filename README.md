@@ -4,7 +4,7 @@
 
 This is a *fuzzy finder* tool for [tmux](https://github.com/tmux/tmux), installed using [tpm](https://github.com/tmux-plugins/tpm), inspired by [nvim-telescope](https://github.com/nvim-telescope/telescope.nvim) and powered by [fzf](https://github.com/junegunn/fzf). A big thank you to the authors of these amazing tools.
 
-Note: Early in development, and supports only one *picker* so far!
+Note: Early in development, and supports only a few *pickers* so far.
 
 ## Requirements
 
@@ -22,7 +22,8 @@ And then hit `<leader> + I`. The *plugin* doesn't set up any keybindings by defa
 
 ```bash
 bind S choose-session                           # Re-bind default session choser to '<leader>S'.
-set -g @telescope-directory-sessions-bind s     # Bind '<leader>s' to open Directory Sessions Picker described below.
+set -g @telescope-directory-sessions-bind s     # Bind '<leader>s' to open Directory Sessions Picker.
+set -g @telescope-sessions-bind a               # Bind '<leader>a' to open Sessions Picker.
 set -g @telescope-rebuild-cache u               # Bind '<leader>u' to refresh Directory Sessions list.
 ```
 
@@ -30,11 +31,15 @@ set -g @telescope-rebuild-cache u               # Bind '<leader>u' to refresh Di
 
 ### Directory Sessions Picker
 
-The one and only *picker* so far. By default it's a list of local [Git](https://git-scm.com/) repositories found recursively from your home (`~`) directory. The search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`. You can provide a list of custom directories to add in `~/.tmux/plugins/tmux-telescope/userdata/custom-directories`.
+By default it's a list of local [Git](https://git-scm.com/) repositories found recursively from your home (`~`) directory. The search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`. You can provide a list of custom directories to add in `~/.tmux/plugins/tmux-telescope/userdata/custom-directories`.
 
 When you pick an entry, a tmux session will be created and a terminal opened at the directory location. If the session already exists it will simply switch to it. Easy peasy.
 
 The directory list is manually refreshed using the key binding `@telescope-rebuild-cache`. This is to avoid to unnecessary indexing and makes the *picker* open instantly.
+
+### Sessions Picker
+
+Lists opened sessions. Picking one switches to that session.
 
 ## Options
 

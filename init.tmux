@@ -15,10 +15,12 @@ bind_tmux_key_if_set() {
 }
 
 COMMAND_DIRECTORY_SESSIONS_PICKER="display-popup -E $SCRIPTS_DIR/picker.sh directory-sessions"
+COMMAND_SESSIONS_PICKER="display-popup -E $SCRIPTS_DIR/picker.sh sessions"
 COMMAND_REFRESH="run-shell 'bash \"$SCRIPTS_DIR/rebuild-cache.sh\"'"
 COMMAND_REBUILD_CACHE="run-shell 'bash \"$SCRIPTS_DIR/rebuild-cache.sh\"'"
 
 bind_tmux_key_if_set "telescope-directory-sessions-bind" "$COMMAND_DIRECTORY_SESSIONS_PICKER"
+bind_tmux_key_if_set "telescope-sessions-bind" "$COMMAND_SESSIONS_PICKER"
 bind_tmux_key_if_set "telescope-directory-refresh-bind" "$COMMAND_REFRESH"
 bind_tmux_key_if_set "telescope-rebuild-cache" "$COMMAND_REBUILD_CACHE"
 
