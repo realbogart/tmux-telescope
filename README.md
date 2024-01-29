@@ -36,6 +36,12 @@ When you pick an entry, a tmux session will be created and a terminal opened at 
 
 The directory list is manually refreshed using the key binding `@telescope-rebuild-cache`. This is to avoid to unnecessary indexing and makes the *picker* open instantly.
 
+## Options
+
+```bash
+set -g @telescope-enable-preview 0  # Disable preview on pickers. It's enabled (1) by default.
+```
+
 # License
 
 [MIT](LICENSE.md)
