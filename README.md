@@ -22,8 +22,9 @@ And then hit `<leader> + I`. The *plugin* doesn't set up any keybindings by defa
 
 ```bash
 bind S choose-session                           # Re-bind default session choser to '<leader>S'.
-set -g @telescope-directory-sessions-bind s     # Bind '<leader>s' to open Directory Sessions Picker.
-set -g @telescope-sessions-bind a               # Bind '<leader>a' to open Sessions Picker.
+set -g @telescope-directory-sessions-bind j     # Bind '<leader>j' to open Directory Sessions Picker.
+set -g @telescope-sessions-bind s               # Bind '<leader>s' to open Sessions Picker.
+set -g @telescope-panes-bind a                  # Bind '<leader>a' to open Panes Picker.
 set -g @telescope-keybindings-bind k            # Bind '<leader>k' to open Keybindings Picker.
 set -g @telescope-builtin-bind b                # Bind '<leader>b' to open Builtin Picker.
 set -g @telescope-rebuild-cache u               # Bind '<leader>u' to refresh Directory Sessions list.
@@ -37,7 +38,7 @@ A good way to explore the features of `tmux-telescope`. It simply lists all of t
 
 ### Directory Sessions Picker
 
-By default it's a list of local [Git](https://git-scm.com/) repositories found recursively from your home (`~`) directory. The search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`. You can provide a list of custom directories to add in `~/.tmux/plugins/tmux-telescope/userdata/custom-directories`.
+By default it will list [Git](https://git-scm.com/) repositories found recursively from your home (`~`) directory. The search paths can be configured in the file `~/.tmux/plugins/tmux-telescope/userdata/gitroots`. You can provide a list of custom directories to add in `~/.tmux/plugins/tmux-telescope/userdata/custom-directories`.
 
 When you pick an entry, a tmux session will be created and a terminal opened at the directory location. If the session already exists it will simply switch to it. Easy peasy.
 
@@ -45,11 +46,15 @@ The directory list is manually refreshed using the key binding `@telescope-rebui
 
 ### Sessions Picker
 
-Lists opened sessions. Picking one switches to that session.
+List open sessions. Picking one switches to that session.
 
 ### Keybindings Picker
 
-Lists tmux category keybindings. No action when selecting one.
+List tmux category keybindings. No action when picking one.
+
+### Panes Picker
+
+List all panes and their current command. For instance, you can filter for `nvim` to find all instances of [neovim](https://neovim.io/). When you pick one, you go to that pane.
 
 ## Options
 

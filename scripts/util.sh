@@ -29,12 +29,23 @@ find_git_dirs() {
     find "$dir_path" -name ".git" | sed 's/\.git$//'
 }
 
-preview_session() {
+preview_pane() {
     session_name="$1"
+    window="$2"
+    pane="$3"
     session_name_escaped=$(printf '%q' "$1")
 
+    target="$session_name_escaped"
+    if [ -n "$window" ] && [ -n "$pane" ]; then
+        # If both window and pane are provided
+        target="${target}:${window}.${pane}"
+    elif [ -n "$window" ]; then
+        # If only window is provided
+        target="${target}:${window}"
+    fi
+
     if tmux has-session -t "$session_name_escaped" 2>/dev/null; then
-        tmux capture-pane -pe -t "$session_name_escaped"
+        tmux capture-pane -pe -t "$target"
     else
         echo "Session '$session_name' does not exist."
         echo "Select to create it."

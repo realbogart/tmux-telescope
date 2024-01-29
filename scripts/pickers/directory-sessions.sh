@@ -50,7 +50,7 @@ picker_list () {
 }
 
 picker_preview () {
-    preview_session "$1"
+    preview_pane "$1"
 }
 
 picker_select () {

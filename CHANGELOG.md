@@ -7,6 +7,7 @@
 * [feature] Add Sessions Picker.
 * [feature] Add Keybindings Picker.
 * [feature] Add Builtin Picker.
+* [feature] Add Panes Picker.
 * [feature] Make picker_select function optional.
 * [fix] Not being able to switch to session names containing special characters.
 * [fix] Tidy up `init.tmux`
