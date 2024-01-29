@@ -25,10 +25,15 @@ bind S choose-session                           # Re-bind default session choser
 set -g @telescope-directory-sessions-bind s     # Bind '<leader>s' to open Directory Sessions Picker.
 set -g @telescope-sessions-bind a               # Bind '<leader>a' to open Sessions Picker.
 set -g @telescope-keybindings-bind k            # Bind '<leader>k' to open Keybindings Picker.
+set -g @telescope-builtin-bind b                # Bind '<leader>b' to open Builtin Picker.
 set -g @telescope-rebuild-cache u               # Bind '<leader>u' to refresh Directory Sessions list.
 ```
 
 ## Features
+
+### Builtin Picker
+
+A good way to explore the features of `tmux-telescope`. It simply lists all of the pickers and when you pick one, it opens.
 
 ### Directory Sessions Picker
 

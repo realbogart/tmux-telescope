@@ -1,5 +1,9 @@
 #!/bin/bash
 
+CURRENT_SCRIPT_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
+source $CURRENT_SCRIPT_DIR/env.sh
+
 eval_and_verify_directories() {
     local input="$1"
     verified_dirs=""
@@ -35,5 +39,9 @@ preview_session() {
         echo "Session '$session_name' does not exist."
         echo "Select to create it."
     fi
+}
+
+open_picker() {
+    tmux display-popup -E $SCRIPTS_DIR/picker.sh $1
 }
 
