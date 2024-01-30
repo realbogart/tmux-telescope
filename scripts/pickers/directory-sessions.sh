@@ -46,6 +46,10 @@ picker_rebuild_cache() {
 }
 
 picker_list () {
+    if tmux show-option -gqv "@telescope-enable-zoxide" | grep -q "1" && command -v zoxide >/dev/null 2>&1; then
+        zoxide query -l | sed "s|^$HOME|~|g"
+    fi
+
     cat "$PICKER_CACHE" | sed "s|^$HOME|~|g"
 }
 

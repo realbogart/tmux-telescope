@@ -60,6 +60,7 @@ List all panes and their current command. For instance, you can filter for `nvim
 
 ```bash
 set -g @telescope-enable-preview 0  # Disable preview on pickers. It's enabled (1) by default.
+set -g @telescope-enable-zoxide 1  # Enable Zoxide for Directory Sessions Picker. It's disabled (0) by default.
 ```
 ## Changelog
 
