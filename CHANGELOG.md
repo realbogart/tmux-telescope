@@ -2,7 +2,9 @@
 
 ## [0.1.1] - 2024-01-30
 
+* [feature] Zoxide support for Directory Sessions Picker.
 * [fix] Directory Session Picker can handle dots (.) in paths.
+* [fix] Zoxide setting preview option.
 
 ## [0.1.0] - 2024-01-29
 

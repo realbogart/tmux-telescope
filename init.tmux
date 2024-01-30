@@ -32,6 +32,6 @@ if ! tmux show-option -g | grep -q "^@telescope-enable-preview"; then
 fi
 
 if ! tmux show-option -g | grep -q "^@telescope-enable-zoxide"; then
-    tmux set-option -g @telescope-enable-preview 0
+    tmux set-option -g @telescope-enable-zoxide 0
 fi
 
