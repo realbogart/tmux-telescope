@@ -57,7 +57,7 @@ picker_select () {
     selected_dir=$1
     selected_dir_expanded=$(echo "$1" | sed "s|^~|$HOME|g")
 
-    session_name="$selected_dir"
+    session_name=$(echo "$selected_dir" | sed 's/\./_/g')
     session_name_escaped=$(printf '%q' "$session_name")
 
     if [ -z "$selected_dir" ]; then

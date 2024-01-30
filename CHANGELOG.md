@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.1] - 2024-01-30
+
+* [fix] Directory Session Picker can handle dots (.) in paths.
+
 ## [0.1.0] - 2024-01-29
 
 * [feature] Option @telescope-enable-preview to enable/disable preview. Enabled by default.
