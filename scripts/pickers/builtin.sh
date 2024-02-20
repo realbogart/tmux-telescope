@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 picker_list () {
     for picker_script in "$PICKERS_DIR"/*.sh; do

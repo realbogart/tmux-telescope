@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 picker_list () {
     tmux list-sessions -F "#{session_name}"

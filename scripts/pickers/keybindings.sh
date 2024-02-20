@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 PICKER_OPT_WRAP="wrap"
 

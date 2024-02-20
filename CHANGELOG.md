@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2 - 2024-02-20
+
+* [fix] Change all shebangs to #!/usr/bin/env bash
+
 ## [0.1.1] - 2024-01-30
 
 * [feature] Zoxide support for Directory Sessions Picker.
