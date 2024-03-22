@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 picker_list() {
     tmux list-panes -a -F "#{session_name}:#{window_index}.#{pane_index} #{pane_current_command}"
