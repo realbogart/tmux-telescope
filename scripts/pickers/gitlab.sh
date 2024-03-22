@@ -65,6 +65,8 @@ get_projects() {
 	local -n p=$1
 	p=()
 	page=1
+	prefix='~/'
+	suffix='/' # prefix and suffix to line up nicely with directory picker
 	while [ 1 ]; do
 		response=$(curl --request GET \
 			--header "PRIVATE-TOKEN: $GITLAB_API_TOKEN" \
@@ -74,7 +76,9 @@ get_projects() {
 		if [ -z "$response" ]; then
 			break
 		else
-			p+=($response)
+			for i in $response; do
+				p+=("$prefix$i$suffix")
+			done
 			page=$(($page + 1))
 		fi
 	done
