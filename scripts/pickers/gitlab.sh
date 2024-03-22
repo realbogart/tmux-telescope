@@ -12,19 +12,11 @@ picker_rebuild_cache() {
 		return
 	fi
 
-	# Assumes jq is installed
-	# TODO: pagination
-	# TODO: limit to favorite subgroup
-	# TODO: make WORK_GITLAB conf var
-	projects=$(curl --request GET \
-		--header "PRIVATE-TOKEN: $GITLAB_API_TOKEN" \
-		"https://$WORK_GITLAB/api/v4/projects?per_page=100" |
-		jq ".[] .path_with_namespace" |
-		sed "s|\"||g")
+	local project=()
+	get_projects projects
 
-	# TODO: fix cache
 	if [[ -n "$projects" ]]; then
-		echo "$projects" >"$PICKER_CACHE"
+		printf "%s\n" "${projects[@]}" >"$PICKER_CACHE"
 	fi
 }
 
@@ -64,4 +56,32 @@ picker_select() {
 			tmux attach-session -t "$session_name_escaped"
 		fi
 	fi
+}
+
+get_projects() {
+	# TODO: Assumes jq is installed
+	# TODO: limit to favorite subgroup
+	# TODO: make WORK_GITLAB conf var
+	local -n p=$1
+	p=()
+	page=1
+	while [ 1 ]; do
+		response=$(curl --request GET \
+			--header "PRIVATE-TOKEN: $GITLAB_API_TOKEN" \
+			"https://$WORK_GITLAB/api/v4/projects?per_page=100&page=$page" |
+			jq ".[] .path_with_namespace" |
+			sed "s|\"||g")
+		if [ -z "$response" ]; then
+			break
+		else
+			p+=($response)
+			page=$(($page + 1))
+		fi
+	done
+}
+
+test_get_projects() {
+	local project=()
+	get_projects projects
+	printf "%s\n" "${projects[@]}"
 }
