@@ -27,6 +27,7 @@ set -g @telescope-sessions-bind s               # Bind '<leader>s' to open Sessi
 set -g @telescope-panes-bind a                  # Bind '<leader>a' to open Panes Picker.
 set -g @telescope-keybindings-bind k            # Bind '<leader>k' to open Keybindings Picker.
 set -g @telescope-builtin-bind b                # Bind '<leader>b' to open Builtin Picker.
+set -g @telescope-gitlab g                      # Bind '<leader>g' to open Gitlab Picker.
 set -g @telescope-rebuild-cache u               # Bind '<leader>u' to refresh Directory Sessions list.
 ```
 
