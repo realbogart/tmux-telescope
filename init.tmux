@@ -24,6 +24,7 @@ bind_tmux_key_if_set "telescope-sessions-bind" "$(open_picker_cmd sessions)"
 bind_tmux_key_if_set "telescope-panes-bind" "$(open_picker_cmd panes)"
 bind_tmux_key_if_set "telescope-keybindings-bind" "$(open_picker_cmd keybindings)"
 bind_tmux_key_if_set "telescope-builtin-bind" "$COMMAND_BUILTIN_PICKER"
+bind_tmux_key_if_set "telescope-gitlab" "$(open_picker_cmd gitlab)"
 bind_tmux_key_if_set "telescope-directory-refresh-bind" "$COMMAND_REFRESH"
 bind_tmux_key_if_set "telescope-rebuild-cache" "$COMMAND_REBUILD_CACHE"
 
